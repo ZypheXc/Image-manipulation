@@ -1,5 +1,9 @@
 const express = require('express')
+const serverless = require('serverless-http');
 const app = express()
+
+
+
 const { Canvas, resolveImage } = require('canvas-constructor/skia');
 const canvas = require('canvas')
 
@@ -26,6 +30,7 @@ app.get('/:feed/:t', async (req, res) => {
     res.send(image).status(200);
 });
 
+module.exports.handler = serverless(app);
 
 const PORT = Math.round(Math.random(1010, 8080))
 app.listen(PORT, () => console.log(`Server running.`));
