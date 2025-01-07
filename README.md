@@ -1,0 +1,1 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/935e2d1a-cf04-43de-bf71-e6866e058f46/deploy-status)](https://app.netlify.com/sites/shirt-manipulator/deploys)
