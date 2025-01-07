@@ -3,11 +3,11 @@ const app = express()
 const { Canvas, resolveImage } = require('canvas-constructor/skia');
 const canvas = require('canvas')
 
-app.get('/:feed/:x/:y/:t', async (req, res) => {
-    const { feed, x, y, t } = req.params;
+app.get('/:feed/:t', async (req, res) => {
+    const { feed, t } = req.params;
 
     console.log(req.params)
-    
+
     const textSize = Number(t) || 28
 
     const img = await resolveImage('./images/template.png');
@@ -16,10 +16,8 @@ app.get('/:feed/:x/:y/:t', async (req, res) => {
         .setTextFont(`${textSize}px Impact`)
         .setColor('#FFFFFF')
         .setTextAlign('center')
-        .printText(feed, Number(x), Number(y))
-        .toBuffer();
-
-    console.log(req)
+        .printText(feed, 295, 150)
+        .toBuffer()
         
     res.set({
         'Content-Type': 'image/png',
